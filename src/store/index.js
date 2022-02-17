@@ -2,10 +2,50 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    pokemones: [],
+    pokemonesFilter: [],
+    favorites: {}
   },
   mutations: {
+    setPokemones(state , payload){
+      state.pokemones = payload
+    },
+    setPokemonesFilter(state, payload){
+      state.pokemonesFilter = payload
+    },
+    setFavorites(state, payload){
+      state.favorites[payload.name] = payload
+    }
   },
   actions: {
+    async getPokemones({ commit }) {
+      try {
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon')
+        const data = await res.json()
+        commit('setPokemones', data.results)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    // addFavorite({commit, state}, pokemones){
+    //   state.favorites.hasOwnProperty(pokemones.name)
+    //  ? pokemones.favorite = state.favorites[pokemones.name].favorite = false
+    //   : pokemones.favorite = true
+    //   commit('setFavorites', pokemones)
+    // },
+    filterName({commit, state}, search){
+      const textSearch = search.toLowerCase()
+      const filtro = state.pokemones.filter(pokemon => {
+      const textApi = pokemon.name.toLowerCase()
+      if (textApi.includes(textSearch)) {
+        return pokemon
+      }
+      })
+      commit('setPokemonesFilter', filtro)
+      
+    },
+
+
   },
   modules: {
   }

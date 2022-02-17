@@ -1,4 +1,39 @@
 <template>
-    <h1>
-        aqui va lal lista de pokemones</h1>
+    <div>
+         <div 
+         v-for= "pokemones in pokemones" :key="pokemones.name">
+            <Pokemon :pokemones="pokemones"/>
+        </div>
+    </div>
+   
 </template>
+
+<script>
+import Pokemon from "./Pokemon.vue"
+import { computed, onMounted } from "vue";
+import { useStore } from "vuex"
+
+export default {
+    name: "PokeList",
+    components:{
+        Pokemon, 
+  
+    },
+    
+    setup() {
+        const store = useStore();
+
+        const pokemones = computed(() => {
+            return  store.state.pokemones;
+        });
+         onMounted(async() =>{
+           await store.dispatch("getPokemones");
+          
+        });
+        const favorites = computed(() => store.state.favorites)
+
+        
+        return { pokemones, favorites };
+    },
+};
+</script>
