@@ -2,10 +2,9 @@
     <div>
     <form class="d-flex">
       <input
-        class="form-control me-2"
         type="text"
         placeholder="Search"
-        aria-label="Search"
+        class="form-control my-2"
         v-model="search"
         @keyup="processInput"
       />
@@ -16,16 +15,13 @@
 <script>
 import { ref } from 'vue';
 import { useStore } from 'vuex';
-export default {
-  name: 'Search',
-  
+export default { 
   setup() {
     const search = ref('');
     const store = useStore();
 
      const processInput = () => {
-      //console.log(search.value);
-      store.dispatch("filterName", search.value);
+      store.dispatch('filterName', search.value);
     };
     return{ search, processInput };
   },

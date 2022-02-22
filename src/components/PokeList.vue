@@ -14,25 +14,20 @@ import { computed, onMounted } from "vue";
 import { useStore } from "vuex"
 
 export default {
-    name: "PokeList",
     components:{
         Pokemon, 
-  
     },
-    
     setup() {
         const store = useStore();
 
         const pokemones = computed(() => {
-            return  store.state.pokemones;
+            return  store.state.pokemonesFilter;
         });
          onMounted(async() =>{
-           await store.dispatch("getPokemones");
-          
+           await store.dispatch("getPokemones");        
         });
         const favorites = computed(() => store.state.favorites)
 
-        
         return { pokemones, favorites };
     },
 };

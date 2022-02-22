@@ -4,6 +4,7 @@ export default createStore({
   state: {
     pokemones: [],
     pokemonesFilter: [],
+    PokemonesDetalls: [],
     favorites: {}
   },
   mutations: {
@@ -15,6 +16,9 @@ export default createStore({
     },
     setFavorites(state, payload){
       state.favorites[payload.name] = payload
+    },
+    setPokemonesDetalls(state, payload){
+      state.PokemonesDetalls = payload
     }
   },
   actions: {
@@ -22,7 +26,17 @@ export default createStore({
       try {
         const res = await fetch('https://pokeapi.co/api/v2/pokemon')
         const data = await res.json()
-        commit('setPokemones', data.results)
+        commit('setPokemones',  data.results)
+        commit('setPokemonesFilter',  data.results)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async getPokemonesDetalls({ commit }) {
+      try {
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon/${name}')
+        const data = await res.json()
+        commit('setPokemones',  data.results)
       } catch (error) {
         console.log(error)
       }
@@ -38,14 +52,11 @@ export default createStore({
       const filtro = state.pokemones.filter(pokemon => {
       const textApi = pokemon.name.toLowerCase()
       if (textApi.includes(textSearch)) {
-        return pokemon
+        return pokemon;
       }
       })
       commit('setPokemonesFilter', filtro)
-      
     },
-
-
   },
   modules: {
   }
