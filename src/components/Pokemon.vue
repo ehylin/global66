@@ -6,7 +6,6 @@
         {{pokemones.name}}
        <span class="favorite badge  ">
             <button class="btn ico-favorite" @click="addFav(pokemones)"><i class="fas fa-star"></i></button>
-            <!-- <button class="btn" @click="detalls(pokemones.name)" ><i class="fas fa-star"></i></button> -->
         </span> 
       </li>
      </ul>
@@ -59,9 +58,11 @@ export default {
 <style scoped>
 .favorite{
   border-radius: 50%;
-  background-color: rgb(2 0 1 / 25%);
+  background-color: #F5F5F5;
 }
 .ico-favorite{
-  color: dimgrey;
+   font-size: 20px;
+  color: #BFBFBF;
 }
+
 </style>

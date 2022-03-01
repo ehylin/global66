@@ -1,9 +1,11 @@
 <template>
 <div class="container">
+  <div  class="mt-5">
      <div 
           v-for= "favoritesSelect in favoritesSelect" :key="favoritesSelect.name">
           <Favorite :favoritesSelect="favoritesSelect" />  
         </div>
+    </div>
         <Footer />
 
 </div>

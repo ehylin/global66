@@ -24,6 +24,13 @@ export default {
     border-radius: 1.25rem;
     background-color: #F22539;
   }
+  a{
+    color: #F22539;
+    text-decoration: none;
+  }
+  a:hover{
+    color: #F22539;
+  }
 </style>
 
 
