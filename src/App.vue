@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>
+    <router-link to="/">Volver(icono flacha)</router-link>
   </div>
   <router-view/>
 </template>

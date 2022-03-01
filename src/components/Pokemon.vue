@@ -4,7 +4,7 @@
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{pokemones.name}}
     <span class="badge bg-primary rounded-pill">
-        <button class="btn" @click="addFav(pokemones)">favorito \\</button>
+        <button class="btn" @click="addFav(pokemones)">favorito icono estrella\\</button>
          <button class="btn btn-dark" >Detalle</button>
     </span>
   </li>
