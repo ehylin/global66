@@ -1,16 +1,36 @@
 <template>
 <div class="detail">
     <div class="detail-wiew" >
+        
     <div class="detail-img text-center">
         <img class="" width="200" :src="pokemonesDetalls.sprites.front_default" alt="imagen">
+        <button type="button" class="btn-close close-detalls" @click="$emit('close')"  ></button>
     </div>
     <div class="detail-content">
-         <p>Name:{{pokemonesDetalls.name}}</p>
-         <hr/>
-         <p>Weight:{{pokemonesDetalls.weight}}</p>
-         <hr/>
-         <p>Height: {{pokemonesDetalls.height}}</p>
-    </div>
+        <div class="property">
+            <h4 class="left">Name:</h4>
+            <p class="right">{{pokemonesDetalls.name}}</p>
+        </div>
+
+        <div class="property">
+            <h4 class="left">Weight:</h4>
+            <p class="right">{{pokemonesDetalls.weight}}</p>
+        </div>
+ 
+        <div class="property">
+            <h4 class="left">Height:</h4>
+            <p class="right">{{pokemonesDetalls.height}}</p>
+        </div>
+        <div class="property types">
+            <h4 class="left">Types:</h4>
+            <div class="types-detalls"
+                v-for= "pokemon in pokemonesDetalls.types" :key="pokemon.name"
+                > 
+                {{pokemon.type.name}}
+            </div>
+        </div>
+        
+    </div>   
     <div class="detail-footer">
          <button class="btn btn-danger boton " >Share to my friends</button> 
          <i class="fas fa-star"></i>
@@ -25,6 +45,7 @@
 import {  ref } from "vue";
 export default {
     props: ['pokemonesDetalls'],
+    emits: ['close'],
 
       setup(){
            const show = ref(false)
@@ -70,5 +91,32 @@ export default {
 }
 .detail-img{
     background: url("../assets/fondo.png") no-repeat 
+}
+.detail-footer i{
+    float: right;
+    font-size: 31px;
+    color: #ECA539;
+}
+.property{
+    border-bottom: 1px solid #ccc; 
+    margin-top: 10px;
+      
+}
+.left{
+    font-size: 20px;
+    float: left ;
+    margin-right: 10px;
+}
+.types{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.types-detalls{
+    margin: 0 10px 10px 0;
+}
+.close-detalls{
+    position: absolute;
+    right: 0;
 }
 </style>
