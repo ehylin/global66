@@ -32,11 +32,11 @@ export default createStore({
         console.log(error)
       }
     },
-    async getPokemonesDetalls({ commit, name }) {
+    async getPokemonesDetalls({ commit }, name) {
       try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         const data = await res.json()
-        commit('setPokemonesDetalls',  data.results)
+        commit('setPokemonesDetalls',  data)
         console.log(data.res)
       } catch (error) {
         console.log(error)

@@ -29,6 +29,8 @@ export default {
            await store.dispatch("getPokemones"); 
               
         });
+
+        
         const favorites = computed(() => store.state.favorites);
 
       
