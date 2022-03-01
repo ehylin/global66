@@ -1,9 +1,9 @@
 <template>
    <nav class="navbar fixed-bottom navbar-light bg-light">
   <div class="container-fluid text-center">
-    <form class="container-fluid justify-content-start">
-    <router-link class="btn btn-danger text-center" to="/listapokemones">Todos</router-link>
-    <router-link class="btn btn-danger text-center" to="/favoritos">Favoritos</router-link>
+    <form class="container-fluid justify-content-center">
+    <router-link class="btn btn-danger boton" to="/listapokemones"><i class="fas fa-align-justify"></i>All</router-link>
+    <router-link class="btn btn-danger boton" to="/favoritos"><i class="fas fa-star"></i>Favorites</router-link>
     <router-view/>
   </form>
   </div>
