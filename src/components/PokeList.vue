@@ -1,17 +1,19 @@
 <template>
-    <div>
+    <div>   
          <div 
          v-for= "pokemones in pokemones" :key="pokemones.name">
-            <Pokemon :pokemones="pokemones"/>
+            <Pokemon :pokemones="pokemones" />
+           
         </div>
+
     </div>
-   
 </template>
 
 <script>
 import Pokemon from "./Pokemon.vue"
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex"
+
 
 export default {
     components:{
@@ -24,11 +26,15 @@ export default {
             return  store.state.pokemonesFilter;
         });
          onMounted(async() =>{
-           await store.dispatch("getPokemones");        
+           await store.dispatch("getPokemones"); 
+              
         });
-        const favorites = computed(() => store.state.favorites)
+        const favorites = computed(() => store.state.favorites);
 
-        return { pokemones, favorites };
+      
+
+
+        return { pokemones, favorites, };
     },
 };
 </script>

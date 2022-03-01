@@ -17,6 +17,11 @@ const routes = [
     name: 'PokeDetalls',
     component: () => import( '../views/ListPoke')
   },
+  {
+    path: '/favoritos',
+    name: 'Favorites',
+    component: () => import( '../views/Favorites')
+  },
 ]
 
 const router = createRouter({

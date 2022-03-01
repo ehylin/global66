@@ -1,14 +1,16 @@
 <template>
-   <nav class="navbar fixed-bottom navbar-light bg-light">
-       <div class="container">
-        <div class="container-fluid">
-        <button type="button" class="btn btn-secondary">All</button>
-        <button type="button" class="btn btn-secondary">Favorites</button>
-        </div>
-       </div>
-    </nav>
+  <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{favoritesSelect.name}}
+        <span class="badge bg-primary rounded-pill">
+            <i class="fas fa-star"></i>
+        </span>
+      </li>
+    </ul>
 </template>
 
 <script>
-
+export default {
+props: ["favoritesSelect", ],
+}
 </script>

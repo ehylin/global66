@@ -32,22 +32,22 @@ export default createStore({
         console.log(error)
       }
     },
-    async getPokemonesDetalls({ commit }) {
+    async getPokemonesDetalls({ commit, name }) {
       try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         const data = await res.json()
-        commit('setPokemones',  data.results)
+        commit('setPokemonesDetalls',  data.results)
         console.log(data.res)
       } catch (error) {
         console.log(error)
       }
     },
-    // addFavorite({commit, state}, pokemones){
-    //   state.favorites.hasOwnProperty(pokemones.name)
-    //  ? pokemones.favorite = state.favorites[pokemones.name].favorite = false
-    //   : pokemones.favorite = true
-    //   commit('setFavorites', pokemones)
-    // },
+    addFavorite({commit, state}, pokemones){
+      state.favorites.propertyIsEnumerable.call(pokemones.name)
+     ? pokemones.favorite = state.favorites[pokemones.name].favorite = false
+      : pokemones.favorite = true
+      commit('setFavorites', pokemones)
+    },
     filterName({commit, state}, search){
       const textSearch = search.toLowerCase()
       const filtro = state.pokemones.filter(pokemon => {
