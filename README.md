@@ -6,6 +6,9 @@
 # Filtro en tiempo real, anadir a favoritos
 # Mostrar detalle de cada pokemon en un modal
 
+_Intente hacerla con Vue 3 , y al final me complique un poco.._
+_Se pueden mejorar muchas cosas, tema tiempo..._
+
 _Realizado como prueba técnica para Global 66.._
 
 ## Para iniciar el proyecto debe ejecutar
