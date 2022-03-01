@@ -5,7 +5,8 @@ export default createStore({
     pokemones: [],
     pokemonesFilter: [],
     PokemonesDetalls: [],
-    favorites: {}
+    favorites: {},
+    loading: false
   },
   mutations: {
     setPokemones(state , payload){

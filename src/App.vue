@@ -16,6 +16,14 @@ export default {
   },
 }
 </script>
-
-<style>
+<style >
+  body{
+    font-family: 'Lato', sans-serif;
+  }
+  .boton{
+    border-radius: 1.25rem;
+    background-color: #F22539;
+  }
 </style>
+
+

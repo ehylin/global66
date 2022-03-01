@@ -1,7 +1,7 @@
 <template>
 <div class="">
     <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center"   data-bs-target="#exampleModal" data-bs-toggle="modal" >
+      <li class="list-group-item d-flex justify-content-between align-items-center"  data-bs-target="#exampleModal" data-bs-toggle="modal" >
         {{pokemones.name}}
        <span class="badge bg-primary rounded-pill">
             <button class="btn" @click="addFav(pokemones)"><i class="fas fa-star"></i></button> /

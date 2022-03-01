@@ -1,5 +1,6 @@
 <template>
-    <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
+    <div class="text-center">
+        <img :src="require('../assets/loading.png')" width="260" class="img-fluid" alt="imagen pokemon">
     </div>
 </template>
+
